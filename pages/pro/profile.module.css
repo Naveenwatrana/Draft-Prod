@@ -1,0 +1,16 @@
+@value theme: "../../common/theme.css";
+@value colorGray80, fontsPrimary, colorRed10 from theme;
+
+.container {
+  background-color: colorGray80;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 906px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.profilePage {
+  background-color: colorGray80;
+}

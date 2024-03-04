@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*",
+    "server/**/*",
+    "cypress/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "coverage",
+    ".env"
+  ]
+}

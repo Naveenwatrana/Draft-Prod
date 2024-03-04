@@ -1,0 +1,60 @@
+@value theme: "common/theme.css";
+@value primaryColor, fontsPrimary, sizesFontRegular, sizesFontLarge, sizesFontLargeregular, sizesFontSmall, sizesFontSmallRegular, colorGray80, colorGray50, colorRed10 from theme;
+
+.text {
+  margin: 0;
+
+}
+.h1 {
+  composes: text;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.h2 {
+  composes: text;
+  font-weight: 600;
+  font-size: sizesFontLarge;
+}
+.h3 {
+  composes: text;
+  font-weight: 400;
+  font-size: sizesFontSmallRegular;
+}
+.h4 {
+  composes: text;
+  font-weight: 400;
+}
+.h5 {
+  composes: text;
+  font-weight: 400;
+}
+.h6 {
+  composes: text;
+  font-weight: 600;
+  font-size: sizesFontSmallRegular;
+}
+.p {
+  composes: text;
+  font-weight: 400;
+}
+.span {
+  composes: text;
+  font-weight: 400;
+  font-size: sizesFontSmall;
+}
+.div {
+  composes: text;
+  font-weight: 600;
+}
+.light {
+  color: white;
+}
+.dark {
+  color: colorGray80;
+}
+.grey {
+  color: colorGray50;
+}
+.error {
+  color: var(--color-red-10);
+}

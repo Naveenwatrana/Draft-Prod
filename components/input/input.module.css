@@ -1,0 +1,101 @@
+@value theme: '../../common/theme.css';
+@value sizesFontSmall from theme;
+/* TODO: Move this variables to theme (tokens) */
+/** {*/
+/*    --button-font-size: 0.75rem;*/
+/*    --fonts-primary: 'Poppins', sans-serif;*/
+/*    --color-gray-60: #373742;*/
+/*    --color-gray-30: #6A7D8E;*/
+/*    --color-gray-80: #21222B;*/
+/*    --color-red-10: #DE4040;*/
+/*    --color-white-10: #F7F7F7;*/
+/*    --sizes-font-regular: 1rem;*/
+/*    --size-1: 0.2rem;*/
+/*    --size-1: 0.4rem;*/
+/*    --size-3: 0.6rem;*/
+/*}*/
+.customInput{
+    font-size: var(--sizes-font-regular);
+    line-height: 24px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--color-gray-60);
+    color: var(--color-gray-30);
+    font-family: var(--fonts-primary);
+    color: var(--color-white-10);
+    font-weight: 400;
+}
+.customInput:focus {
+    outline-color: var(--color-gray-30);
+}
+
+.customLabel{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--color-white-10);
+    font-family: var(--fonts-primary);
+    margin-bottom: var(--size-1);
+}
+.error {
+    color: var(--color-red-10);
+    font-size: sizesFontSmall;
+    font-family: var(--fonts-primary);
+    text-align: end;
+    font-weight: 400;
+}
+.errorInput {
+    border-color: var(--color-red-10);
+    color:  var(--color-red-10);
+}
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+}
+.fileInputWrapper {
+    height: 400px;
+    margin: 0 30px 20px;
+    border-radius: 0 0 12px 12px;
+    background-color: var(--color-gray-60);
+}
+
+.fileInputBorder {
+    border: 1px dashed var(--color-gray-30);
+}
+
+
+.fileInputLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+
+.fileInputInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.imagePreview {
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+}
+
+.closeIcon {
+    margin-left: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.disabled {
+    color: var(--color-gray-60);
+    background: transparent;
+    border: 1px solid var(--color-gray-60);
+}

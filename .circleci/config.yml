@@ -1,0 +1,273 @@
+version: 2.1
+
+#########
+
+orbs:
+  slack: circleci/slack@3
+  heroku: circleci/heroku@1.2.6
+  node: circleci/node@5.0.2
+  cypress: cypress-io/cypress@3
+
+#########
+
+notify:
+  webhooks:
+    - url: 'https://api.reviewee.it/notification/ci'
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/node:16.14.2
+    steps:
+      - set-git-vars
+      - run:
+          name: Check Rejected Commits
+          environment:
+            - REVIEWEE_URL: https://api.reviewee.it
+            - COMMITS_CHECK_INDICATOR: \"success\":true
+          command: wget ${REVIEWEE_URL}/repository/${CIRCLE_PROJECT_REPONAME}/haveRejectedCommits -q -O - | grep -q ${COMMITS_CHECK_INDICATOR}
+      - run:
+          name: Install System Dependencies
+          command: |
+            sudo apt-get update && sudo apt-get -f install && sudo apt-get install wget
+      - run:
+          name: Install Node dependencies
+          command: |
+            npm install
+      - run:
+          name: Check test cases
+          command: npm run test 
+      - notify-slack-build:
+          commit-description: ${GIT_COMMIT_DESC}
+          commit-author: ${GIT_COMMIT_AUTHOR}
+          fail-only: true
+
+  deploy-chromatic:
+    docker:
+      - image: circleci/node:16
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: npm install
+  
+  slack-notify-chromatic:
+    docker:
+      - image: circleci/node:16
+    steps:
+      - set-git-vars
+      - slack/status:
+          channel: ${SLACK_CHANNEL}
+          mentions: ${SLACK_MENTIONS}
+          success_message: |
+            :done: *$CIRCLE_PROJECT_REPONAME* Storybook deployed to Chromatic! :books: 
+            
+            commit: *$CIRCLE_SHA1* $GIT_COMMIT_DESC 
+            author: *$GIT_COMMIT_AUTHOR*
+          webhook: ${SLACK_WEBHOOK}
+
+  run-e2e-tests:
+    parameters:
+      isProduction:
+        description: Determines if production env values should be used
+        default: 'false'
+        type: string
+      sha:
+        description: Commit SHA
+        type: string
+        default: none
+      notifySlack:
+        description: true sends a Slack notification before starting E2E tests
+        type: boolean
+        default: false
+    docker:
+      - image: cypress/browsers:node16.5.0-chrome94-ff93
+    environment:
+      CYPRESS_isProduction: << parameters.isProduction >>
+    steps:
+      - checkout
+      - run:
+          name: Setup env variables for cypress run
+          command: |
+            echo 'export CYPRESS_BASE_URL=$E2E_TEST_ENVIRONMENT_URL' >> $BASH_ENV
+            source $BASH_ENV
+      - node/install-packages:
+          cache-version: v19
+      - restore_cache:
+          keys:
+            - v19-cypress-cache-{{ arch }}
+      - run:
+          name: Install Cypress binaries if not restored from cache
+          command: |
+            if [ ! -d "/root/.cache/Cypress" ]; then
+              npx cypress install
+            fi
+            exit 0
+      - run:
+          command: yarn run cypress:run
+      - store_artifacts:
+          path: /root/project/cypress/videos
+      - store_artifacts:
+          path: /root/project/cypress/screenshots
+      - store_artifacts:
+          path: /root/project/cypress-tests-report.json
+      - save_cache:
+          key: v19-cypress-cache-{{ arch }}
+          paths:
+            - /root/.cache/Cypress
+      - checkout
+      - run:
+          name: Setup env variables with commit details
+          command: |
+            echo 'export GIT_COMMIT_DESC=$(git log --format=%B -n 1 $CIRCLE_SHA1)' >> $BASH_ENV
+            echo 'export GIT_COMMIT_AUTHOR=$(git log --format=%ae -n 1 $CIRCLE_SHA1)' >> $BASH_ENV
+            source $BASH_ENV
+          when: always
+
+#########
+
+workflows:
+  deploy-production:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: production
+      - heroku/deploy-via-git:
+          name: deploy-to-heroku-production
+          app-name: draft-prod
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: production
+          post-steps:
+            - set-git-vars
+            - notify-slack-build:
+                commit-description: ${GIT_COMMIT_DESC}
+                commit-author: ${GIT_COMMIT_AUTHOR}
+
+  deploy:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: main
+      - heroku/deploy-via-git:
+          name: deploy-to-heroku
+          app-name: draft-uat
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: main
+          post-steps:
+            - set-git-vars
+            - notify-slack-build:
+                commit-description: ${GIT_COMMIT_DESC}
+                commit-author: ${GIT_COMMIT_AUTHOR}
+      - cypress/run:
+          requires:
+            - deploy-to-heroku
+          filters:
+            branches:
+              only: main
+          post-steps:
+            - set-git-vars
+            - notify-slack-e2e:
+                commit-description: ${GIT_COMMIT_DESC}
+                commit-author: ${GIT_COMMIT_AUTHOR}
+
+  chromatic-deploy:
+    jobs:
+      - deploy-chromatic:
+          filters:
+            branches:
+              only: main
+      - slack-notify-chromatic:
+          filters:
+            branches:
+              only: main
+          requires:
+            - deploy-chromatic
+
+##########
+
+commands:
+  set-git-vars:
+    steps:
+      - checkout
+      - run:
+          name: Setup env variables with commit details
+          command: |
+            echo 'export GIT_COMMIT_DESC=$(git log --format=%B -n 1 $CIRCLE_SHA1)' >> $BASH_ENV
+            echo 'export GIT_COMMIT_AUTHOR=$(git log --format=%ae -n 1 $CIRCLE_SHA1)' >> $BASH_ENV
+            source $BASH_ENV
+  notify-slack-e2e:
+    parameters:
+      commit-description:
+        description: Commit description
+        type: string
+        default: none
+      commit-author:
+        description: Commit author
+        type: string
+        default: none
+      fail-only:
+        description: When to notify Slack
+        type: boolean
+        default: false
+    steps:
+      - slack/status:
+          fail_only: << parameters.fail-only >>
+          channel: ${SLACK_CHANNEL}
+          mentions: ${SLACK_MENTIONS}
+          failure_message: |
+            *E2E tests report*
+            *Environment: $E2E_TEST_ENVIRONMENT_URL*
+
+            :red_circle: Some tests for *$CIRCLE_PROJECT_REPONAME* failed :/
+            Please check details in CircleCI job logs and "Artifacts" tab.
+            
+            commit: *$CIRCLE_SHA1* << parameters.commit-description >>
+            author: *<< parameters.commit-author >>*
+          success_message: |
+            *E2E tests report*
+            *Environment: $E2E_TEST_ENVIRONMENT_URL*
+
+            :tada: All tests for *$CIRCLE_PROJECT_REPONAME* passed! :+1:
+            
+            commit: *$CIRCLE_SHA1* << parameters.commit-description >>
+            author: *<< parameters.commit-author >>*
+          webhook: ${SLACK_WEBHOOK}
+  notify-slack-build:
+    parameters:
+      commit-description:
+        description: Commit description
+        type: string
+        default: none
+      commit-author:
+        description: Commit author
+        type: string
+        default: none
+      fail-only:
+        description: When to notify Slack
+        type: boolean
+        default: false
+    steps:
+      - slack/status:
+          channel: ${SLACK_CHANNEL}
+          mentions: ${SLACK_MENTIONS}
+          fail_only: << parameters.fail-only >>
+          failure_message: |
+            :x: *$CIRCLE_PROJECT_REPONAME* failed to deploy to UAT! 
+
+            commit: *$CIRCLE_SHA1* << parameters.commit-description >>
+            author: *<< parameters.commit-author >>*
+          success_message: |
+            :done: *$CIRCLE_PROJECT_REPONAME* deployed to UAT! 
+            
+            commit: *$CIRCLE_SHA1* << parameters.commit-description >>
+            author: *<< parameters.commit-author >>*
+          webhook: ${SLACK_WEBHOOK}

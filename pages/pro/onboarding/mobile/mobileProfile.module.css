@@ -1,0 +1,231 @@
+@value theme: "../../../../common/theme.css";
+@value colorGray36, colorGray50, colorGray60, colorGray80, colorGray70, colorGray100, fontsPrimary, colorRed10, colorWhite10, primaryColor from theme;
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colorGray80;
+    min-height: 100vh;
+    padding: 0 30px;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    flex: 2;
+    gap: 16px;
+}
+
+.textWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    gap: 20px;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.btnPrimary {
+    margin-top:auto;
+}
+
+.formHeader {
+    background-color: black;
+    padding: 10px;
+    border-radius: 12px 12px 0 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 20px 0;
+    width: 90%;
+    height: 100%;
+}
+
+.uploadWrapper {
+    margin: 0 30px;
+}
+
+.upload {
+    height: 400px;
+    border: 1px dashed colorGray50;
+    margin: 20px 30px;
+    border-radius: 12px;
+    background-color: colorGray70;
+}
+
+.btnWrapper {
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+
+.thumbsIcon {
+    border-radius: 100%;
+    background: radial-gradient(117.15% 117.14% at 62.14% -8.57%, #3C3E6A 0%, rgba(61, 63, 84, 0) 100%);
+    padding: 20px;
+}
+
+.fileInputWrapper {
+    height: 500px;
+    border-radius: 0 0 12px 12px;
+    background-color: var(--color-gray-60);
+    border-radius: 10px;
+    margin-top: -5px;
+}
+
+@media screen and (max-height: 775px) {
+    .fileInputWrapper{
+        height: 400px;
+    }
+}
+
+.fileInputBorder {
+    border: 1px dashed var(--color-gray-30);
+}
+
+.fileInputLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+
+.fileInputInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.imagePreview {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.imagePreviewContainer{
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+}
+
+.imagePreviewContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius:12px;
+    background: linear-gradient(180deg, colorGray100 5%, colorGray36 50%, colorGray100 100%);
+}
+
+.closeIcon {
+    margin-left: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.error {
+    background-color: colorRed10;
+    font-family: fontsPrimary;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    color: colorWhite10;
+}
+
+.fileInputBorderError {
+    border: 1px dashed colorRed10;
+    border-top: 0px;
+}
+
+.uploadContentLabel, .uploadContentInfo{
+    color: var(--color-gray-30);
+}
+
+.uploadContentLabel{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.uploadContentInfo{
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    margin: 20px 0 24px;
+}
+
+.headerContainerSuccess {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stepLineWrapper {
+    display: flex;
+}
+
+.stepLine {
+    width: 44px;
+    height: 4px;
+    background-color: colorGray60;
+    margin: 8px;
+}
+
+.stepLineActive {
+    background-color: colorWhite10;
+}
+
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    gap: 10px;
+    width: 100%;
+}
+
+.skipButton {
+    color: primaryColor !important;
+    background-color: none !important;
+    box-shadow: transparent !important;
+}

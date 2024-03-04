@@ -1,0 +1,22 @@
+@value primaryColor: #5FF088; /* Will be updated with tokens later */
+@value colorBlack10: #5C5C5C;
+@value colorGray100: #131315;
+@value colorGray80: #21222B;
+@value colorGray70: #373742;
+@value colorGray60: #4D5561;
+@value colorGray50: #6A7D8E;
+@value colorGray36: #1212145c;
+@value colorSecondary: #2C2D52;
+@value fontsPrimary: 'Poppins', sans-serif;
+@value colorWhite10: #F7F7F7;
+@value colorWhite20: #ACB6BF;
+@value colorRed10: #DE4040;
+@value colorViolet10: #3C3E6A;
+@value sizesFontLargeregular: 1.2rem;
+@value sizesFontRegular: 1rem;
+@value sizesFontLarge: 1.5rem;
+@value sizesFontXLarge: 2rem;
+@value sizesFontXXLarge: 3rem;
+@value sizesFontSmallRegular: 0.9rem;
+@value sizesFontSmall: 0.875rem;
+@value colorGreen100: #43c167;

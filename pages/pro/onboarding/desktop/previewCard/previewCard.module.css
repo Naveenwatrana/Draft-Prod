@@ -1,0 +1,89 @@
+@value theme: "../../../../../common/theme.css";
+@value colorGray36, colorGray100 from theme;
+
+.imageContainer {
+  width: 300px;
+  height: 500px;
+  background-size: cover;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    colorGray100 10%,
+    colorGray36 50%,
+    colorGray100 100%
+  );
+  border-radius: 12px;
+}
+
+.imageContainerHeader {
+  padding: 15px;
+  border-radius: 12px 12px 0 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.imagePreview {
+  height: 100%;
+  width: 100%;
+  border-radius: 0 0 12px 12px;
+  padding-top: 25px;
+}
+
+.mantra {
+  font-size: 20px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  margin: auto;
+  padding: 15px;
+  z-index: 1;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.projectitem {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  margin: auto;
+  padding: 15px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  word-wrap: break-word;
+}
+
+.company {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.role {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.3;
+}

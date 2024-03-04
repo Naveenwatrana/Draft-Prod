@@ -1,0 +1,205 @@
+{
+    "AttachedFileName": {
+        "Video file": "AirBnB.mp4"
+    },
+    "WhatWillYouDo": {
+        "FunctionalRole": "business finance",
+        "SectionHeader": "What you will do",
+        "SectionTitle1": "Explain what the job role involves day to day.",
+        "SectionTitle2": "Candidates are looking for a clear understanding of their core responsibilities and what you will expect of them.",
+        "AddResponsibilityBtn": "Add responsibilities",
+        "RoleType": "Individual contributor",
+        "phoneNumber": "9552788788",
+        "whatsAppNumber": "9552788788",
+        "facebookLink": "https://www.facebook.com",
+        "instagramLink": "https://www.instagramlink.com"
+    },
+    "JobBrandstackCard": {
+        "CoverCardHeader": "Jobs can often be the first contact candidates have with your organisation",
+        "Aboutcardheader": "About Card",
+        "Heading": "Automation engineer job",
+        "AboutCardDescription": "An automation engineer is a specialist who implements the entire life cycle of automated equipment from programming to testing."
+    },
+    "Linkcard": {
+        "linkCardHrader": "Link Card",
+        "URLlink": "https://www.betterteam.com/test-automation-engineer-job-description"
+    },
+    "JobPreference": {
+        "BaseSalary": "8000",
+        "Compensation": "9000",
+        "BaseSalary_Heading": "What is your minimum expected salary?",
+        "BaseSalary_SubHeading": "We won't recommend jobs that are below your base salary expectation.",
+        "Compensation_Heading": "What is your desired total annual compensation (Including base salary and any bonuses) ?",
+        "Compensation_SubHeading": "We won't recommend jobs that are below your base salary expectation.",
+        "Language_Heading": "Which languages can you work in?",
+        "Language_SubHeading": "Add any languages that you are comfortable working in so we can show you relevant jobs.",
+        "Position_Heading": "Select all the types you would be open to",
+        "Employment_Position1": "Full-time",
+        "Employment_Position2": "Part-time",
+        "Employment_Position3": "Freelance",
+        "Workstyle_Heading": "Choose how you want to work",
+        "Work_Style": "On-site",
+        "Location_Heading": "Select up to 5 locations",
+        "Region_Heading": "Which location and timezone restrictions would you be able to meet for a remote job. Select up to 5 options."
+    },
+    "SignUp": {
+        "EnterEmail": "You must enter e-mail address",
+        "whiteSpace": "Whitespace is not allowed",
+        "MustvalidEmail": "email must be a valid email",
+        "PasswordRequried": "Password is required",
+        "PaswwordnotMatched": "Password don't match",
+        "MinimumCharacter": "min 8 character",
+        "SpecialCharUsername": "!@#$%^&*()@#.com",
+        "SpecialCharPassword": "!@#$%^&*",
+        "NumericalUsername": "123456789.com",
+        "NumericalPassword": "123456789",
+        "TestUser1": "Testuser256@yopmail.com",
+        "Password": "Test@1234",
+        "WrongEmail": "naveen@yopmai",
+        "WrongPassword": "test123",
+        "TestUser2": "naveen@yopmail.com",
+        "LessPassword": "Test123",
+        "CapsPassword": "TESTTEST",
+        "ExistingUser": "Test_7326@yopmail.com",
+        "ExistingUserPassword": "Admin@123"
+    },
+    "Login": {
+        "EnterEmail": "You must enter e-mail address",
+        "whiteSpace": "Whitespace is not allowed",
+        "MustvalidEmail": "email must be a valid email",
+        "PasswordRequried": "Password is required",
+        "PaswwordnotMatched": "Password don't match",
+        "MinimumCharacter": "min 8 character",
+        "SpecialCharUsername": "!@#$%^&*()@#.com",
+        "SpecialCharPassword": "!@#$%^&*",
+        "NumericalUsername": "123456789.com",
+        "NumericalPassword": "123456789",
+        "TestUser1": "Testuser256@yopmail.com",
+        "Password": "Test@1234",
+        "WrongEmail": "naveen@yopmai",
+        "WrongPassword": "test123",
+        "TestUser2": "naveen@yopmail.com",
+        "LessPassword": "Test123",
+        "CapsPassword": "TESTTEST",
+        "ExistingUser": "Test_7326@yopmail.com",
+        "ExistingUserPassword": "Admin@123",
+        "IncorrectValidation": "Incorrect email or password"
+    },
+    "UserOnboarding": {
+        "Confirm": "First, confirm your name",
+        "ThreecharValidation": "Minimum 3 characters required",
+        "userLastname": "rose",
+        "wrongFirstname": "ab",
+        "wrongLastname": "cd",
+        "texas": "Texas",
+        "FirstnameValidation": "The first name must be a string",
+        "LoremIpsum": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the vnv,n,mn",
+        "MaxcharValidation": "Maximum 100 characters allowed",
+        "FirstUsername": "Test",
+        "LastUsername": "user",
+        "ProjectTitle": "The draft",
+        "Institute": "Chitkara University"
+    },
+    "CreateOrganization": {
+        "Username": "Harpratap@yopmail.com",
+        "Password": "Test@123",
+        "CreateVerifyOrg": "Who can create and verify an organization",
+        "OrgpageTitle": "Look up your organization",
+        "Entervalidurl": "Please enter valid URL",
+        "OrgDetail": "Organization details",
+        "Orgconfirm": "Confirm the name and type of organization",
+        "SelectTypebox": "Select type",
+        "ConfirmEmail": "Confirm email",
+        "VerifyworkOrg": "Verify that you work at this organization",
+        "WorkemailValidation": "workEmail must be a valid email",
+        "DomainValidation": "Doesn't match your entered domain"
+    },
+    "CreateJob": {
+        "AddResponsibilitiesOption": "Add responsibilities",
+        "Title": "What you will do",
+        "Text": "Comfortable tackling ambiguous, complex problems Live for feedback, you reach out often and early",
+        "LoremIpsum": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"
+    },
+    "JobView": {
+        "workspace": "Workspace",
+        "Openstatus": "Open",
+        "PendingStatus": "Pending",
+        "CloseStatus": "Closed",
+        "SkillsyouHave": "Skills you have",
+        "WhoyouAre": "Who you are",
+        "WhatyouwillDo": "What you will do",
+        "EditJob": "Edit Job",
+        "Applicant": "Applicants",
+        "Message": "Messages",
+        "Recommendations": "Recommendations"
+    },
+    "Sharelink": {
+        "createText": "Create",
+        "SuccessMessage": "Link created successfully",
+        "InvalidLink": "www.test123^&&.com",
+        "UnsupportedType": "Unsupported link type",
+        "Link1": "https://www.youtube.com/watch?v=ErPRxshc-uk&list=RDErPRxshc-uk&start_radio=1",
+        "Link2": "https://www.youtube.com/watch?v=8xI10SFgzQ8",
+        "Link3": "https://www.youtube."
+    },
+    "CreateArticle": {
+        "username": "Harpratap@yopmail.com",
+        "Password": "Test@123",
+        "Imagepreviewbox": "Add story image preview",
+        "DiscardText": "Discard this article",
+        "LoremIpsum": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+        "StoryPreview": "Story Preview",
+        "Tagtopics": "Tag topics",
+        "Adddescription": "Add description",
+        "savetext": "Your story won't be saved"
+    },
+    "ArticleFeed": {
+        "ArticlesFilter": "ARTICLES",
+        "ArticleLink": "https://www.thedraft.io/article/chatgpt-app-for-android-will-reportedly-get-a-new-home-screen-widget-soon-10847",
+        "More": "... More",
+        "Less": " ... Less",
+        "Comments": "Comments"
+    },
+    "CreatePost": {
+        "createText": "Create",
+        "Imagepreviewbox": "Select image or video to upload",
+        "Filespecification": "File Specification",
+        "ImageType": "File type: .PNG or .JPEG",
+        "Videotype": "File type: .MP4 or .MOV",
+        "Addcaption": "Add caption",
+        "TagTopics": "Tag topics",
+        "DiscardPost": "Discard this post"
+    },
+    "FollowUser": {
+
+        "AshProfile": "https://www.thedraft.io/pro/naveen-watrana"
+ 
+    },
+
+
+    "JobsFeed":{
+
+        "Jobsoption":"JOBS",
+        "ScoreText": "Your Draft Score",
+        "Skills":"Skills you have",
+        "Whoyou": "Who you are",
+        "Whatyou": "What you will do"
+    },
+
+
+    "TextBlock":{
+
+        "MyProfile":"My Profile",
+        "Settings": "Settings",
+        "Help":"Help",
+        "Logout": "Logout",
+        "TextBlock": "Text Block",
+        "content": "Apple Watch Ultra already has a hardware-exclusive Wayfinder face that let users turn on the night mode by shifting the colour mode to red and black.",
+        "Lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+        "BoxText": "Are you sure you want to remove this block"
+   
+   
+   
+    }
+
+}
