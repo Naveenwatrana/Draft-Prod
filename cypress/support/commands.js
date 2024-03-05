@@ -95,13 +95,33 @@ Cypress.Commands.add("onboardingFlow", () => {
     cy.get(selectors.userOnboarding.editProfileButton).should('be.visible').click();
 })
 
+
 Cypress.Commands.add("signUpFromAPI", (email) => {
-    cy.request('POST', 'https://thedraft.io//api/v1/signup', { email: `${email}`, password: 'Admin@123' })/*.then(
+    cy.request('POST', 'https://production-draft-api.herokuapp.com/api/v1/signup', { email: `${email}`, password: 'Admin@123' })/*.then(
         (response) => {
             //expect(response.status).to.eq(201);
         } */
    // ).then(() => {
-        cy.request('POST', 'https://thedraft.io//api/v1/email/verify', { email: `${email}` })/*.then(
+        // cy.request('POST', 'https://production-draft-api.herokuapp.com/api/v1/email/verify', { email: `${email}` })/*.then(
+        //     (response) => {
+        //        // expect(response.status).to.eq(200);
+        //     }
+        // ) 
+    // })*/
+
+})
+
+
+
+
+
+Cypress.Commands.add("VerifyEmail", (email) => {
+    // cy.request('POST', 'https://production-draft-api.herokuapp.com/api/v1/signup', { email: `${email}`, password: 'Admin@123' })/*.then(
+        // (response) => {
+        //     //expect(response.status).to.eq(201);
+        // } */
+   // ).then(() => {
+        cy.request('POST', 'https://production-draft-api.herokuapp.com/api/v1/email/verify', { email: `${email}` })/*.then(
             (response) => {
                // expect(response.status).to.eq(200);
             }

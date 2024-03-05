@@ -101,8 +101,8 @@
         "Institute": "Chitkara University"
     },
     "CreateOrganization": {
-        "Username": "Harpratap@yopmail.com",
-        "Password": "Test@123",
+        "Username": "test_77251@yopmail.com",
+        "Password": "Admin@123",
         "CreateVerifyOrg": "Who can create and verify an organization",
         "OrgpageTitle": "Look up your organization",
         "Entervalidurl": "Please enter valid URL",
@@ -143,19 +143,20 @@
         "Link3": "https://www.youtube."
     },
     "CreateArticle": {
-        "username": "Harpratap@yopmail.com",
-        "Password": "Test@123",
+        "username": "Test_23329@yopmail.com",
+        "Password": "Admin@123",
         "Imagepreviewbox": "Add story image preview",
         "DiscardText": "Discard this article",
         "LoremIpsum": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
         "StoryPreview": "Story Preview",
         "Tagtopics": "Tag topics",
         "Adddescription": "Add description",
-        "savetext": "Your story won't be saved"
+        "savetext": "Your story won't be saved",
+        "articleContent": "Windows 11 has received a new update for March 2024 that will bring new features and major improvements to supported PCs, laptops, and workstations. Microsoft announced the long list of features on Thursday and stated that the update has started rolling out to users. However, not all the features will be available immediately, with the new Copilot features coming later this month. Some of the notable features include improvements to Widgets, new skills for the artificial intelligence (AI)-powered chatbot Copilot, and new features for multiple apps."
     },
     "ArticleFeed": {
         "ArticlesFilter": "ARTICLES",
-        "ArticleLink": "https://www.thedraft.io/article/chatgpt-app-for-android-will-reportedly-get-a-new-home-screen-widget-soon-10847",
+        "ArticleLink": "https://draft-uat.herokuapp.com/article/coindcx-highlights-risk-of-fraudulent-websites-shares-safety-tips-to-avoid-crypto-scams-28171",
         "More": "... More",
         "Less": " ... Less",
         "Comments": "Comments"
@@ -172,7 +173,7 @@
     },
     "FollowUser": {
 
-        "AshProfile": "https://www.thedraft.io/pro/naveen-watrana"
+        "AshProfile": "https://draft-uat.herokuapp.com/pro/ashraf-salah-rezk-ibrahim"
  
     },
 
@@ -201,5 +202,4 @@
    
    
     }
-
 }
