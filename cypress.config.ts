@@ -4,7 +4,7 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   e2e: {
-    baseUrl: "https://www.thedraft.io/",
+    baseUrl: "https://draft-prod.vercel.app/",
     testIsolation: false,
     
     

@@ -27,7 +27,7 @@ describe('Logout Test cases', () => {
 
         cy.get(selectors.logout.profileIcon).click()
         cy.get(selectors.logout.LogoutOption).click()
-        cy.url().should('eq', 'https://www.thedraft.io/account/signin');
+        cy.url().should('eq', 'https://draft-prod.vercel.app/account/signin');
     })
 })
 

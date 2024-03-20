@@ -173,7 +173,7 @@
     },
     "FollowUser": {
 
-        "AshProfile": "https://draft-uat.herokuapp.com/pro/ashraf-salah-rezk-ibrahim"
+        "AshProfile": "https://draft-prod.vercel.app/pro/ashraf-ibrahim"
  
     },
 

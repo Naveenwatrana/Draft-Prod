@@ -33,20 +33,6 @@ describe('Switch between account test cases', () => {
         cy.url().should('include', 'jip')
     })
 
-    // it('Check that user is able to switch from one company account to another company account', () => {
-    //     cy.visit('https://draft-uat.herokuapp.com/feed')
-    //     cy.ElementToVisible()
-    //     cy.get(selectors.croncycleUserPermission.profileIcon).click();
-    //     cy.get(selectors.croncycleUserPermission.switchAccountsButton).click()
-    //     cy.get(selectors.croncycleUserPermission.EddoxCompany).should('be.visible').click()
-    //     cy.ElementToVisible()
-    // })
-
-    // it('Check that user is able to switch from company account to user account', () => {
-    //     cy.get(selectors.croncycleUserPermission.profileIcon).click();
-        
-    //     cy.get(selectors.croncycleUserPermission.switchAccountsButton).click()
-    //     cy.get(selectors.croncycleUserPermission.EddoxCompany).should('be.visible').click()
-    // })
+    
 
 })

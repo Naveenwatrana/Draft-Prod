@@ -8,29 +8,28 @@ let password = "Admin@123";
 let count = 0;
 const dayjs = require('dayjs');
 
+before(() => {
 
+    cy.clearLocalStorage();
+})
 
 beforeEach(() => {
     cy.viewport('macbook-13');
+
 })
 
 describe('Comment on article content test cases', () => {
 
     Cypress.on('uncaught:exception', (err, runnable) => {
-        // returning false here prevents Cypress from
-        // failing the test
         return false
     })
 
     it('Check that user should be able to go to article details page', () => {
-       cy.login('Harpratap@yopmail.com', 'Test@123');
-
-        cy.wait(10000)
-
-       
-        cy.ElementToVisible()
+        cy.visit('https://draft-prod.vercel.app/account/signin')
+        cy.login('Harpratap@yopmail.com', 'Test@123');
+       cy.ElementToVisible()
         cy.contains("ARTICLES").should('be.visible').click()
-       cy.visit("https://www.thedraft.io/article/chatgpt-app-for-android-will-reportedly-get-a-new-home-screen-widget-soon-10847")
+       cy.visit("https://draft-prod.vercel.app/article/g20-summit-in-indi-27")
        
     })
 
@@ -62,6 +61,8 @@ describe('Comment on article content test cases', () => {
     })
 
     
+    
+
     
 
     

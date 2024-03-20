@@ -17,7 +17,7 @@ describe('Check that user can redirect to Other user profile screen', () => {
         cy.login('Harpratap@yopmail.com', 'Test@123');
         cy.ElementToVisible()
         cy.visit(TestData.FollowUser.AshProfile)
-        cy.url().should('include',"/naveen-watrana" )
+        cy.url().should('include',"/ashraf-ibrahim" )
     }) 
 
     it('Check that user should able to follow the other user', () => {

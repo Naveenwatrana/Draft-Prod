@@ -35,7 +35,7 @@ describe('Organization E2E flow', () => {
         // Creaet Job
         cy.get(selectors.croncycleUserPermission.profileIcon).should('be.visible').click();
         cy.get(selectors.croncycleUserPermission.switchAccountsButton).should('be.visible').click();
-        cy.contains('General Motor').should('be.visible').click();
+        cy.contains('Paytm').should('be.visible').click();
         cy.wait(1000);
         cy.contains("Create").click({ force: true });
         cy.contains("Job").click();
@@ -49,7 +49,7 @@ describe('Organization E2E flow', () => {
         cy.get(selectors.createJob.skillTechnologylist).contains('React').click()
         cy.get('[data-cy="addSkillButton"]').click()
         cy.get(selectors.createJob.skillTechnologyInputbox).click().type("Node")
-        cy.get(selectors.createJob.skillTechnologylist).contains('NodeJS').click()
+        cy.get(selectors.createJob.skillTechnologylist).contains('Node.js').click()
         cy.get(selectors.createJob.saveButton).click()
         cy.contains(selectors.createJob.addRequirementsotion).click()
         cy.get(selectors.createJob.employementTypefield).click()
@@ -117,15 +117,13 @@ describe('Organization E2E flow', () => {
             "London, UK", "London");
         cy.contains('Confirm').click();
         cy.contains('Save').click();
-        cy.get('.iZASWH').within(() => {
-            cy.contains('Sr. Automation Tester')
-            cy.contains('Part-time');
-            cy.contains('$15,000 - $25,000');
-            cy.contains('Agile Testing');
-            cy.contains('On-site');
-            cy.contains('London, UK');
-            cy.contains('51 - 100');
-        })
+        cy.contains('Sr. Automation Tester')
+        cy.contains('Part-time');
+        cy.contains('$15,000 - $25,000');
+        cy.contains('Agile Testing');
+        cy.contains('On-site');
+        cy.contains('London, UK');
+        cy.contains('51 - 100');
 
         //Verify the open job is not displaying in pending state
         cy.contains('Open Job').click();
